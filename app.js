@@ -14,6 +14,8 @@ const quill = new Quill('#editor', {
 });
 
 // 2. Load Google API
+const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
+
 function handleCredentialResponse(response) {
   console.log("Encoded JWT ID token: " + response.credential);
   // From here, you can send this token to your backend or use it with Google APIs
