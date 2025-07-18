@@ -14,6 +14,11 @@ const quill = new Quill('#editor', {
 });
 
 // 2. Load Google API
+function handleCredentialResponse(response) {
+  console.log("Encoded JWT ID token: " + response.credential);
+  // From here, you can send this token to your backend or use it with Google APIs
+}
+
 function start() {
   gapi.load('client:auth2', initClient);
 }
