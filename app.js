@@ -1,7 +1,7 @@
 // 1. Initialize Quill
 const quill = new Quill('#editor', {
   theme: 'snow',
-  placeholder: 'Start writing your sermon...',
+  placeholder: 'Test: Sztart writing your sermon...',
   modules: {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
