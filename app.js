@@ -17,14 +17,19 @@ const quill = new Quill('#editor', {
 function start() {
   gapi.load('client:auth2', initClient);
 }
+const CLIENT_ID = '923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com';
+const API_KEY = ''; // Not required for this app
+const DISCOVERY_DOCS = ["https://docs.googleapis.com/$discovery/rest?version=v1"];
+const SCOPES = 'https://www.googleapis.com/auth/documents';
 
 let accessToken = '';
 let docId = '';
 
 function initClient() {
   gapi.client.init({
-    clientId: '923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com',
-    scope: 'https://www.googleapis.com/auth/documents'
+    apiKey,
+    clientId,
+    scope
   }).then(() => {
     const authInstance = gapi.auth2.getAuthInstance();
     authInstance.signIn().then(googleUser => {
