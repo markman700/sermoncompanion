@@ -19,8 +19,21 @@ const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleuser
 function handleCredentialResponse(response) {
   console.log("Encoded JWT ID token: " + response.credential);
   // From here, you can send this token to your backend or use it with Google APIs
+
+  const data = parseJwt(response.credential);
+  console.log("User info:", data);
 }
 
+// Helper to decode the JWT
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+    '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+  ).join(''));
+
+  return JSON.parse(jsonPayload);
+}
 function start() {
   gapi.load('client:auth2', initClient);
 }
