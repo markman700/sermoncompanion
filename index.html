@@ -4,12 +4,14 @@
 <!-- Removed meta code  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://accounts.google.com https://apis.google.com 'unsafe-inline' 'unsafe-eval';"> -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://accounts.google.com https://apis.google.com https://cdn.quilljs.com https://www.gstatic.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https://accounts.google.com https://apis.google.com https://www.gstatic.com https://cdn.quilljs.com;
   style-src 'self' 'unsafe-inline' https://cdn.quilljs.com https://accounts.google.com;
+  font-src 'self' data:;
   frame-src https://accounts.google.com https://*.gstatic.com;
   connect-src https://accounts.google.com https://www.googleapis.com https://*.gstatic.com;
   img-src 'self' https://*.gstatic.com https://*.googleusercontent.com data:;
 ">
+
   
 <!-- Quill styles -->
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
