@@ -1,6 +1,5 @@
 // 1. Initialize Quill
-// const quill = new quill('#editor', {
-const quill('#editor', {
+const quill = new quill('#editor', {
   theme: 'snow',
   placeholder: 'Start writing your sermon...',
   modules: {
