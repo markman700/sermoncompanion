@@ -1,5 +1,6 @@
 // 1. Initialize Quill
-const quill = new quill('#editor', {
+document.addEventListener("DOMContentLoaded", () => {
+const quill = new Quill('#editor', {
   theme: 'snow',
   placeholder: 'Start writing your sermon...',
   modules: {
@@ -12,6 +13,7 @@ const quill = new quill('#editor', {
     ]
   }
 });
+}];
 
 // 2. Load Google API
 const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
