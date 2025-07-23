@@ -13,7 +13,7 @@ const quill = new Quill('#editor', {
     ]
   }
 });
-});
+}); // end document.add....
 
 // 2. Load Google API
 const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
