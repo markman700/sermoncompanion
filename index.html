@@ -10,14 +10,30 @@
 
   <!-- CSP -->
   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self'; 
-    script-src 'self' https://apis.google.com https://accounts.google.com https://www.gstatic.com; 
-    style-src 'self' 'unsafe-inline'; 
-    font-src 'self' data:;
-    frame-src https://accounts.google.com https://www.gstatic.com;
-    connect-src https://accounts.google.com https://www.googleapis.com https://oauth2.googleapis.com;
-    img-src 'self' https://*.gstatic.com https://*.googleusercontent.com data:;
-  ">
+  default-src 'self';
+
+  /*  JS  */
+  script-src
+      'self'
+      'unsafe-inline'               /* GIS injects inline JS   */
+      'unsafe-eval' blob: data:     /* internal GIS helpers    */
+      https://apis.google.com
+      https://accounts.google.com
+      https://www.gstatic.com;
+
+  /*  CSS  */
+  style-src
+      'self' 'unsafe-inline'
+      https://accounts.google.com          /* gsi/style           */;
+
+  /*  Frames & XHR  */
+  frame-src  https://accounts.google.com https://www.gstatic.com;
+  connect-src https://accounts.google.com https://www.googleapis.com https://oauth2.googleapis.com;
+
+  /*  Images & fonts  */
+  img-src  'self' https://*.gstatic.com https://*.googleusercontent.com data:;
+  font-src 'self' data:;
+">
 
   <!-- Quill (Self-hosted) -->
   <link rel="stylesheet" href="quill.snow.css">
