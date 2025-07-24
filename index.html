@@ -3,43 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sermon Editor - the New helper</title>
+  <title>Sermon Editor - the New Helper</title>
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-  <!-- Content Security Policy -->
+  <!-- CSP -->
   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com;
-    style-src 'self' 'unsafe-inline';
-    connect-src https://accounts.google.com https://www.googleapis.com https://oauth2.googleapis.com;
-    frame-src https://accounts.google.com https://www.gstatic.com;
-    img-src 'self' https://*.gstatic.com https://*.googleusercontent.com data:;
+    default-src 'self'; 
+    script-src 'self' https://apis.google.com https://accounts.google.com https://www.gstatic.com; 
+    style-src 'self' 'unsafe-inline'; 
     font-src 'self' data:;
+    frame-src https://accounts.google.com https://www.gstatic.com;
+    connect-src https://accounts.google.com https://www.googleapis.com https://oauth2.googleapis.com;
+    img-src 'self' https://*.gstatic.com https://*.googleusercontent.com data:;
   ">
 
-  <!-- Quill styles -->
-  <link href="quill.snow.css" rel="stylesheet" />
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Identity and API -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://apis.google.com/js/api.js" async defer></script>
-
-  <!-- Quill JS (self-hosted) -->
+  <!-- Quill (Self-hosted) -->
+  <link rel="stylesheet" href="quill.snow.css">
   <script src="quill.min.js"></script>
+
+  <!-- Google Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Google Sign-In button config -->
+  <!-- Google Sign-In -->
   <div id="g_id_onload"
     data-client_id="923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com"
     data-callback="handleCredentialResponse"
     data-auto_prompt="false">
   </div>
-
   <div class="g_id_signin"
     data-type="standard"
-    dat
+    data-size="large"
+    data-theme="outline"
+    data-text="sign_in_with"
+    data-shape="rectangular"
+    data-logo_alignment="left">
+  </div>
+
+  <!-- Main App -->
+  <div class="container">
+    <h1>Sermon Editor - the New Helper</h1>
+
+    <div id="editor_container" style="display:none;">
+      <input id="title" type="text" placeholder="Sermon Title" />
+      <div id="editor" style="height: 400px;"></div>
+      <div id="status"></div>
+    </div>
+  </div>
+
+  <!-- App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
