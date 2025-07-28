@@ -19,11 +19,12 @@ const quill = new Quill('#editor', {
 const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
 
 function handleCredentialResponse(response) {
-  console.log("Encoded JWT ID token: " + response.credential);
-  // From here, you can send this token to your backend or use it with Google APIs
-
-  const data = parseJwt(response.credential);
-  console.log("User info:", data);
+  try {
+    console.log("Credential response:", response);
+    // your logic
+  } catch (err) {
+    console.error("Credential handler error:", err);
+  }
 }
 
 // Helper to decode the JWT
