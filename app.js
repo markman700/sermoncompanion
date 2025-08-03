@@ -2,13 +2,19 @@
 const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
 
 function handleCredentialResponse(response) {
-  try {
-    console.log("Credential response:", response);
-    // your logic
-  } catch (err) {
-    console.error("Credential handler error:", err);
-  }
+try {
+  gapi.load('client:auth2', () => {
+    gapi.client.init({ /* config */ })
+      .then(() => console.log('GAPI initialized'))
+      .catch(err => console.error('GAPI init error:', err));
+  });
+} catch (e) {
+  console.error('GAPI load error:', e);
 }
+
+
+
+
 
 // Helper to decode the JWT
 function parseJwt(token) {
@@ -104,4 +110,5 @@ function autoSaveToGoogleDoc() {
 
 // Start Google Sign-In flow
 start();
+
 
