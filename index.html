@@ -25,14 +25,9 @@
   frame-src https://accounts.google.com https://www.gstatic.com;
 ">
 
+  <!--CKeditor-->
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-<script>
-  ClassicEditor
-    .create(document.querySelector('#editor'))
-    .catch(error => {
-      console.error(error);
-    });
-</script>
+
 
   <!-- Google Sign-In -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -74,8 +69,17 @@
     </div>
   </div>
 
+  <!-- CK editor -->
+  <script>
+  ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
 
 </body>
 </html>
+
 
 
