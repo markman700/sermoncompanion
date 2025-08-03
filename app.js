@@ -1,20 +1,3 @@
-// 1. Initialize Quill
-document.addEventListener("DOMContentLoaded", () => {
-const quill = new Quill('#editor', {
-  theme: 'snow',
-  placeholder: 'Start writing your sermon...',
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link'],
-      ['clean']
-    ]
-  }
-});
-}); // end document.add....
-
 // 2. Load Google API
 const CLIENT_ID = "923732194950-47pgmq5t0su9tcimna5v3hbcomtsdta2.apps.googleusercontent.com";
 
@@ -121,3 +104,4 @@ function autoSaveToGoogleDoc() {
 
 // Start Google Sign-In flow
 start();
+
