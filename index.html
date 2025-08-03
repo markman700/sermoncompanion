@@ -25,15 +25,20 @@
   frame-src https://accounts.google.com https://www.gstatic.com;
 ">
 
-  <!-- Quill (Self-hosted) -->
-  <link rel="stylesheet" href="quill.snow.css">
-  <script src="quill.min.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
 
   <!-- Google Sign-In -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://apis.google.com/js/api.js"></script>
 
-    <!-- App Logic -->
+  <!-- App Logic -->
   <script src="app.js"></script>
 
   <!-- Styles -->
@@ -57,12 +62,14 @@
   </div>
 
   <!-- Main App -->
+  
   <div class="container">
     <h1>Sermon Editor - the New Helper</h1>
 
     <div id="editor_container" style="display:none;">
       <input id="title" type="text" placeholder="Sermon Title" />
       <div id="editor" style="height: 400px;"></div>
+      <textarea id="editor"></textarea>
       <div id="status"></div>
     </div>
   </div>
@@ -70,3 +77,4 @@
 
 </body>
 </html>
+
